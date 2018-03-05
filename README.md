@@ -21,30 +21,33 @@ I have used python as my language of choice here to cover up some basics and get
 
 Initialize the code with your facebook access token first in the code -
 
-  `# graph api constants
-  graph_api_version = 'v2.12'
-  access_token = 'YOUR_ACCESS_TOKEN'`
+    # graph api constants
+    graph_api_version = 'v2.12'
+    access_token = 'YOUR_ACCESS_TOKEN'
 
 Facebook page ids are hardcoded inside -
 
-  `# Facebook page ids [Grameenphone.net, RobiFanz4G, banglalinkmela]
-  page_id_list = [['121148644629531', 'gp', False],
-  ['681794701899631', 'robi', False],
-  ['250144108362888', 'bl', False]]`
+    # Facebook page ids [Grameenphone.net, RobiFanz4G, banglalinkmela]
+    page_id_list = [['121148644629531', 'gp', False],
+    ['681794701899631', 'robi', False],
+    ['250144108362888', 'bl', False]]
 
 I took some keywords to search inside the posts and hard-coded those. (yes!!! not to be astonished, but we have 4.5G in Bangldesh as per show and published in numerous media :) )
 
-  `keywords = ['4g', '4G', 'ফোরজি', '৪জি', '4.5g', '4.5G']`
+    keywords = ['4g', '4G', 'ফোরজি', '৪জি', '4.5g', '4.5G']
 
 My data of interest is as -
 
-  `reaction_header = ['operator', 'post_id', 'message', 'created_time', 'comments', 'likes', 'love', 'haha', 'sad', 'angry']`
+    reaction_header = ['operator', 'post_id', 'message', 'created_time', 'comments', 'likes', 'love', 'haha', 'sad', 'angry']
 
 I also tried to make the scraping faster with the help of basic threading -
 
-  `_thread.start_new_thread(get_post_thread, ("Thread-1", page_id_list[0:1], ))
-  _thread.start_new_thread(get_post_thread, ("Thread-2", page_id_list[1:2], ))
-  _thread.start_new_thread(get_post_thread, ("Thread-3", page_id_list[2:3], ))`
+    _thread.start_new_thread(get_post_thread, ("Thread-1", page_id_list[0:1], ))
+    _thread.start_new_thread(get_post_thread, ("Thread-2", page_id_list[1:2], ))
+    _thread.start_new_thread(get_post_thread, ("Thread-3", page_id_list[2:3], ))
+
+## License
+> MPL 2.0
 
 ## Result:
 I was able to generate 3 CSV files containing the posts, comments and reactions for 3 different operators. The files are -
